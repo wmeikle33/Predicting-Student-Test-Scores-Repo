@@ -5,7 +5,7 @@ import sys
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 
-DATASET = "avazu-ctr-prediction"
+DATASET = "predicting-student-test-scores"
 
 data_dir = Path("data")
 
