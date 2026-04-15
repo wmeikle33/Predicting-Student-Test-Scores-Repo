@@ -10,7 +10,7 @@ Predicting-Student-Test-Scores/
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── src/
-│   └── student_test_scores/
+│   └── test_scores/
 │       ├── __init__.py
 │       ├── model.py
 │       ├── train.py
