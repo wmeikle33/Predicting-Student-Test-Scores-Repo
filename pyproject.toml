@@ -28,8 +28,8 @@ dev = [
 ]
 
 [project.scripts]
-ctr-train = "test_scores.train:main"
-ctr-predict = "test_scores.predict:main"
+test-scores-train = "test_scores.train:main"
+test-scores-predict = "test_scores.predict:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
