@@ -4,7 +4,6 @@ import pandas as pd
 from joblib import dump, load
 from sklearn.linear_model import LogisticRegression
 from xgboost import XGBRegressor
-from sklearn.metrics import log_loss, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from .features import auto_preprocess, split_features_label
@@ -29,7 +28,6 @@ def build_pipeline(
                 "XGBoost is not installed. Run: pip install -e '.[xgb]'"
             )
         classifier = XGBRegressor(
-            objective="binary:logistic",
             eval_metric="logloss",
             n_estimators=300,
             max_depth=6,
