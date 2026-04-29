@@ -72,21 +72,12 @@ def train_eval_save(
     )
 
     pipe.fit(X_train, y_train)
+    preds = pipe.predict()
 
     metrics: dict[str, float] = {}
 
-    if hasattr(pipe, "predict_proba"):
-        y_prob = pipe.predict_proba(X_val)
-        if y.nunique() == 2:
-            pos_prob = y_prob[:, 1]
-            metrics = test_scores_metrics(y_val, pos_prob)
-        else:
-            metrics = {"log_loss": float(log_loss(y_val, y_prob))}
-    else:
-        raise ValueError(
-            "Pipeline does not support predict_proba(), required for Predicting Student Test Scores metrics."
-        )
-
+    metrics = test_scores_metrics(y_val, preds)
+        
     Path(model_path).parent.mkdir(parents=True, exist_ok=True)
     dump(pipe, model_path)
 
