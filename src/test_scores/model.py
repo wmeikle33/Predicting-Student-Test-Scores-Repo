@@ -2,7 +2,7 @@ from __future__ import annotations
 from pathlib import Path
 import pandas as pd
 from joblib import dump, load
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
 from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -18,7 +18,7 @@ def build_pipeline(
     preprocessor = auto_preprocess(X)
 
     if model_name == "logreg":
-        regressor = LogisticRegression(
+        regressor = LinearRegression(
             max_iter=200,
             random_state=random_state,
         )
