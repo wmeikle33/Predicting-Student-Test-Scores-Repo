@@ -16,7 +16,7 @@ def parse_args():
         default=str(DEFAULT_DATA_PATH),
         help="Path to training CSV",
     )
-    ap.add_argument("--label", default="test_scores", help="Target column")
+    ap.add_argument("--label", default="exam_scores", help="Target column")
     ap.add_argument(
         "--model-path",
         default=str(DEFAULT_MODEL_PATH),
