@@ -18,7 +18,7 @@ def build_pipeline(
     preprocessor = auto_preprocess(X)
 
     if model_name == "logreg":
-        classifier = LogisticRegression(
+        regressor = LogisticRegression(
             max_iter=200,
             random_state=random_state,
         )
@@ -27,7 +27,7 @@ def build_pipeline(
             raise ImportError(
                 "XGBoost is not installed. Run: pip install -e '.[xgb]'"
             )
-        classifier = XGBRegressor(
+        regressor = XGBRegressor(
             eval_metric="logloss",
             n_estimators=300,
             max_depth=6,
