@@ -16,6 +16,8 @@ python scripts/download_data.py
 pip install -e .
 test_scores-train --csv data/raw/train.csv --label exam_scores --model logreg --model-path models/logreg.joblib
 
+### XGB regression
+
 ```
 
 
