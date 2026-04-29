@@ -72,7 +72,7 @@ def train_eval_save(
     )
 
     pipe.fit(X_train, y_train)
-    preds = pipe.predict()
+    preds = pipe.predict(X_val)
 
     metrics: dict[str, float] = {}
 
