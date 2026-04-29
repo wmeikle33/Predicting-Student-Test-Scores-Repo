@@ -25,3 +25,4 @@ ss = StandardScaler()
     preprocess = ColumnTransformer([('Scaling',ss,num_cols),
                                ('Ordinal',oe,oe_cols),
                                ('Onehot',ohe,ohe_cols)])
+return preprocess
