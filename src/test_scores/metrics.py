@@ -1,12 +1,8 @@
-from __future__ import annotations
+from sklearn.metrics import root_mean_squared_error, mean_absolute_error, r2_score
 
-from typing import Any
-
-from sklearn.metrics import rmse
-
-def test_scores_metrics(y_true, y_prob) -> dict[str, float]:
-    metrics = {"rmse": float(rmse(y_true, y_prob))}
-    return metrics
-
-def metric_score(metric_fn: Any, y_true, y_pred):
-    return metric_fn(y_true, y_pred)
+def test_scores_metrics(y_true, y_pred) -> dict[str, float]:
+    return {
+        "rmse": float(root_mean_squared_error(y_true, y_pred)),
+        "mae": float(mean_absolute_error(y_true, y_pred)),
+        "r2": float(r2_score(y_true, y_pred)),
+    }
