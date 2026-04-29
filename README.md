@@ -1,5 +1,7 @@
 ## Quickstart
 
+```bash
+
 git clone https://github.com/wmeikle33/Predicting-Student-Test-Scores-Repo.git
 cd Predicting-Student-Test-Scores-Repo
 python -m venv .venv
@@ -10,8 +12,12 @@ python scripts/download_data.py
 ## Training different models
 
 ### Logistic regression baseline
+
 pip install -e .
 test_scores-train --csv data/raw/train.csv --label exam_scores --model logreg --model-path models/logreg.joblib
+
+```
+
 
 ## Project Structure
 
