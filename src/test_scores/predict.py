@@ -19,7 +19,13 @@ def main():
 
     model = load(args.model)
     X = load_csv(args.input)
+    preds = model.predict(X)
 
+    out = pd.DataFrame({
+        args.id_col: X[args.id_col] if args.id_col in X.columns else range(len(X)),
+        "prediction": preds,
+    })
+    
     save_csv(out, args.output)
     print(f"Saved predictions to: {args.output}")
 
