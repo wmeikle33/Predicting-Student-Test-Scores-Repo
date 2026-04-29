@@ -13,16 +13,16 @@ def split_features_label(df: pd.DataFrame, label: str) -> tuple[pd.DataFrame, pd
 
 def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
     oe_categories = [['easy', 'moderate', 'hard'],
- ['low', 'medium', 'high'],
- ['no', 'yes'],
- ['poor', 'average', 'good']]
-  num_cols = X.select_dtypes(include='number').columns
-  ohe_cols = ['study_method']
-  oe_cols = X.select_dtypes(include='object').columns.difference(ohe_cols)
-oe = OrdinalEncoder(categories=oe_categories)
-ohe = OneHotEncoder(handle_unknown='ignore')
-ss = StandardScaler()
+    ['low', 'medium', 'high'],
+    ['no', 'yes'],
+    ['poor', 'average', 'good']]
+    num_cols = X.select_dtypes(include='number').columns
+    ohe_cols = ['study_method']
+    oe_cols = X.select_dtypes(include='object').columns.difference(ohe_cols) 
+    oe = OrdinalEncoder(categories=oe_categories)
+    ohe = OneHotEncoder(handle_unknown='ignore')
+    ss = StandardScaler()
     preprocess = ColumnTransformer([('Scaling',ss,num_cols),
                                ('Ordinal',oe,oe_cols),
                                ('Onehot',ohe,ohe_cols)])
-return preprocess
+    return preprocess
