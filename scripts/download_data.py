@@ -5,7 +5,7 @@ import sys
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 
-DATASET = "predicting-student-test-scores"
+DATASET = "Predicting Student Test Scores"
 
 data_dir = Path("data")
 
