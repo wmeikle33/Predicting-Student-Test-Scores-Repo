@@ -23,7 +23,7 @@ def build_pipeline(
             random_state=random_state,
         )
     elif model_name == "xgb":
-        if XGBClassifier is None:
+        if XGBRegressor is None:
             raise ImportError(
                 "XGBoost is not installed. Run: pip install -e '.[xgb]'"
             )
