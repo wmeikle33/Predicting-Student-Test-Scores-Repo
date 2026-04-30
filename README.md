@@ -1,5 +1,19 @@
 # Predicting Student Test Scores
 
+```md
+## ML pipeline
+
+```mermaid
+flowchart TD
+    A[Predicting Student Test Scores<br/>train.csv / test.csv] --> B[Load data]
+    B --> C[Preprocessing]
+    C --> D[Feature encoding]
+    D --> E[Train model]
+    E --> F[Evaluate on validation split]
+    F --> G[Generate test predictions]
+    G --> H[submission.csv]
+```
+
 ## Dataset
 
 ## Quickstart
