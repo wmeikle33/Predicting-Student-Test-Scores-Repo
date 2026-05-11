@@ -79,7 +79,7 @@ Predicting-Student-Test-Scores/
 
 | Model | MAE | RMSE | R² |
 |---|---:|---:|---:|
-| Linear Regression | TBD | TBD | TBD |
+| Linear Regression | 7.094141681716576 | 8.888116427627885 | 0.7778736245068312 |
 | Ridge Regression | TBD | TBD | TBD |
 | Random Forest | TBD | TBD | TBD |
 | XGBoost Regressor | TBD | TBD | TBD |
