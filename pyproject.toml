@@ -16,11 +16,11 @@ dependencies = [
   "numpy>=1.24",
   "scikit-learn>=1.3",
   "joblib>=1.3",
+  "xgboost>=2.0"
 ]
 
 [project.optional-dependencies]
 data = ["kaggle>=1.6"]
-xgb = ["xgboost>=2.0"]
 dev = [
   "pytest>=8.0",
   "ruff>=0.6",
