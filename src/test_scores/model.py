@@ -17,7 +17,7 @@ def build_pipeline(
 ) -> Pipeline:
     preprocessor = auto_preprocess(X)
 
-    if model_name == "logreg":
+    if model_name == "linreg":
         regressor = LinearRegression(
             max_iter=200,
             random_state=random_state,
