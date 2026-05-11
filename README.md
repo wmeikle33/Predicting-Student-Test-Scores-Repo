@@ -45,6 +45,7 @@ pip install -e .
 test-scores-train --csv data/raw/train.csv --label exam_score --model linreg --model-path models/linreg.joblib
 
 ### XGB regression
+test-scores-train --csv data/raw/train.csv --label exam_score --model xgb --model-path models/xgb.joblib
 
 ```
 
