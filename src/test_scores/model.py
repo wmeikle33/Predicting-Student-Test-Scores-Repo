@@ -41,7 +41,7 @@ def build_pipeline(
     return Pipeline(
         steps=[
             ("prep", preprocessor),
-            ("clf", classifier),
+            ("reg", regressor),
         ]
     )
 
