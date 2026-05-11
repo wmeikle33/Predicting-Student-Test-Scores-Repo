@@ -56,13 +56,11 @@ def train_eval_save(
     X, y = split_features_label(df, label)
 
     pipe = build_pipeline(X, model_name=model_name, random_state=random_state)
-    stratify = y if y.nunique() <= 20 else None
     X_train, X_val, y_train, y_val = train_test_split(
         X,
         y,
         test_size=test_size,
         random_state=random_state,
-        stratify=stratify,
     )
 
     pipe.fit(X_train, y_train)
