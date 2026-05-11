@@ -5,7 +5,7 @@ import sys
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 
-DATASET = "Predicting Student Test Scores"
+DATASET = "playground-series-s6e1"
 
 data_dir = Path("data")
 
@@ -23,7 +23,7 @@ def download_from_kaggle(data_dir: Path):
     print(f"Downloading files into: {data_dir}")
 
     api.competition_download_files(
-        competition="student-test-scores",
+        competition=DATASET,
         path=str(data_dir),
         quiet=False,
         force=False,
