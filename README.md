@@ -42,7 +42,7 @@ python scripts/download_data.py
 ### Linear regression baseline
 
 pip install -e .
-test_scores-train --csv data/raw/train.csv --label exam_scores --model linreg --model-path models/linreg.joblib
+test-scores-train --csv data/raw/train.csv --label exam_scores --model linreg --model-path models/linreg.joblib
 
 ### XGB regression
 
