@@ -23,7 +23,7 @@ def parse_args():
         help="Saved model path",
     )
     ap.add_argument(
-        "--model-name",
+        "--model",
         default='linreg',
         help="Model Name",
     )
@@ -47,7 +47,7 @@ def main():
         df=df,
         label=args.label,
         model_path=args.model_path,
-        model_name=args.model_name,
+        model_name=args.model,
         random_state=args.random_state,
         test_size=args.test_size,
     )
