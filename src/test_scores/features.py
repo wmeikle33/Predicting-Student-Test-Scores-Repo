@@ -14,12 +14,7 @@ def split_features_label(df: pd.DataFrame, label: str) -> tuple[pd.DataFrame, pd
     return X, y
 
 def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
-    ordinal_cols = [
-        "parental_education_level",
-        "teacher_quality",
-        "motivation_level",
-        "family_income",
-    ]
+    ordinal_cols = ['exam_difficulty', 'facility_rating', 'internet_access', 'sleep_quality']
 
     oe_categories = [['easy', 'moderate', 'hard'],
      ['low', 'medium', 'high'],
