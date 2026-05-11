@@ -22,6 +22,11 @@ def parse_args():
         default=str(DEFAULT_MODEL_PATH),
         help="Saved model path",
     )
+    ap.add_argument(
+        "--model-name",
+        default='linreg',
+        help="Model Name",
+    )
     ap.add_argument("--test-size", type=float, default=0.2, help="Validation fraction")
     ap.add_argument("--random-state", type=int, default=42)
     return ap.parse_args()
