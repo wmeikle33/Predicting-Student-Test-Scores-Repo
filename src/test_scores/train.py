@@ -51,7 +51,7 @@ def main():
         random_state=args.random_state,
         test_size=args.test_size,
     )
-
+    print(metrics)
     print(f"Saved model to: {model_path}")
 
 
