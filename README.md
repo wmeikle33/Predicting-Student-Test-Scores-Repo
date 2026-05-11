@@ -83,4 +83,4 @@ Predicting-Student-Test-Scores/
 | Linear Regression | 7.094141681716576 | 8.888116427627885 | 0.7778736245068312 |
 | Ridge Regression | TBD | TBD | TBD |
 | Random Forest | TBD | TBD | TBD |
-| XGBoost Regressor | TBD | TBD | TBD |
+| XGBoost Regressor | 6.98921082892972 | 8.765084138889923 | 0.7839805584017395 |
