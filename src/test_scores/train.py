@@ -46,7 +46,8 @@ def main():
     metrics = train_eval_save(
         df=df,
         label=args.label,
-        model_path=model_path,
+        model_path=args.model_path,
+        model_name=args.model_name,
         random_state=args.random_state,
         test_size=args.test_size,
     )
