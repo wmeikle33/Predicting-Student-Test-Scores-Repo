@@ -21,12 +21,10 @@ def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
         "family_income",
     ]
 
-    ordinal_categories = [
-        ["High School", "College", "Postgraduate"],
-        ["Low", "Medium", "High"],
-        ["Low", "Medium", "High"],
-        ["Low", "Medium", "High"],
-    ]
+    oe_categories = [['easy', 'moderate', 'hard'],
+     ['low', 'medium', 'high'],
+     ['no', 'yes'],
+     ['poor', 'average', 'good']]
 
     nominal_cols = [
         "study_method",
