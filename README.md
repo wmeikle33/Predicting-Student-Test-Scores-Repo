@@ -16,6 +16,16 @@ flowchart TD
 
 ## Dataset
 
+Source: Kaggle Predicting Student Test Scores competition.
+
+Target column: `exam_scores`
+
+Main feature groups:
+- demographics
+- study habits
+- attendance
+- prior academic indicators
+
 ## Quickstart
 
 ```bash
