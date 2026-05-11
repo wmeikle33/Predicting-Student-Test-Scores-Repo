@@ -30,7 +30,7 @@ def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
     ordinal_pipe = Pipeline([
         ("imputer", SimpleImputer(strategy="most_frequent")),
         ("encoder", OrdinalEncoder(
-            categories=ordinal_categories,
+            categories=oe_categories,
             handle_unknown="use_encoded_value",
             unknown_value=-1,
         )),
