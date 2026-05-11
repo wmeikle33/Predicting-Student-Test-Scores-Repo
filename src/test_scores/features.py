@@ -12,6 +12,29 @@ def split_features_label(df: pd.DataFrame, label: str) -> tuple[pd.DataFrame, pd
     return X, y
 
 def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
+    ordinal_cols = [
+    "parental_education_level",
+    "teacher_quality",
+    "motivation_level",
+    "family_income",
+    ]
+    
+    ordinal_categories = [
+        ["High School", "College", "Postgraduate"],
+        ["Low", "Medium", "High"],
+        ["Low", "Medium", "High"],
+        ["Low", "Medium", "High"],
+    ]
+    
+    ordinal_pipe = Pipeline([
+        ("imputer", SimpleImputer(strategy="most_frequent")),
+        ("encoder", OrdinalEncoder(
+            categories=ordinal_categories,
+            handle_unknown="use_encoded_value",
+            unknown_value=-1
+        )),
+    ])
+
     oe_categories = [['easy', 'moderate', 'hard'],
     ['low', 'medium', 'high'],
     ['no', 'yes'],
@@ -22,7 +45,8 @@ def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
     oe = OrdinalEncoder(categories=oe_categories)
     ohe = OneHotEncoder(handle_unknown='ignore')
     ss = StandardScaler()
-    preprocess = ColumnTransformer([('Scaling',ss,num_cols),
-                               ('Ordinal',oe,oe_cols),
-                               ('Onehot',ohe,ohe_cols)])
-    return preprocess
+    preprocessor = ColumnTransformer([
+    ("ordinal", ordinal_pipe, ordinal_cols),
+    ("onehot", onehot_pipe, nominal_cols),
+    ("numeric", numeric_pipe, numeric_cols),
+])
