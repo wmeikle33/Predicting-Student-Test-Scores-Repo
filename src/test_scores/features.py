@@ -13,40 +13,51 @@ def split_features_label(df: pd.DataFrame, label: str) -> tuple[pd.DataFrame, pd
 
 def auto_preprocess(X: pd.DataFrame) -> ColumnTransformer:
     ordinal_cols = [
-    "parental_education_level",
-    "teacher_quality",
-    "motivation_level",
-    "family_income",
+        "parental_education_level",
+        "teacher_quality",
+        "motivation_level",
+        "family_income",
     ]
-    
+
     ordinal_categories = [
         ["High School", "College", "Postgraduate"],
         ["Low", "Medium", "High"],
         ["Low", "Medium", "High"],
         ["Low", "Medium", "High"],
     ]
-    
+
+    nominal_cols = [
+        "study_method",
+    ]
+
+    numeric_cols = X.select_dtypes(include="number").columns.tolist()
+
     ordinal_pipe = Pipeline([
         ("imputer", SimpleImputer(strategy="most_frequent")),
         ("encoder", OrdinalEncoder(
             categories=ordinal_categories,
             handle_unknown="use_encoded_value",
-            unknown_value=-1
+            unknown_value=-1,
         )),
     ])
 
-    oe_categories = [['easy', 'moderate', 'hard'],
-    ['low', 'medium', 'high'],
-    ['no', 'yes'],
-    ['poor', 'average', 'good']]
-    num_cols = X.select_dtypes(include='number').columns
-    ohe_cols = ['study_method']
-    oe_cols = X.select_dtypes(include='object').columns.difference(ohe_cols) 
-    oe = OrdinalEncoder(categories=oe_categories)
-    ohe = OneHotEncoder(handle_unknown='ignore')
-    ss = StandardScaler()
+    onehot_pipe = Pipeline([
+        ("imputer", SimpleImputer(strategy="most_frequent")),
+        ("encoder", OneHotEncoder(
+            handle_unknown="ignore",
+            sparse_output=False,
+        )),
+    ])
+
+    numeric_pipe = Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("scaler", StandardScaler()),
+    ])
+
     preprocessor = ColumnTransformer([
-    ("ordinal", ordinal_pipe, ordinal_cols),
-    ("onehot", onehot_pipe, nominal_cols),
-    ("numeric", numeric_pipe, numeric_cols),
-])
+        ("ordinal", ordinal_pipe, ordinal_cols),
+        ("onehot", onehot_pipe, nominal_cols),
+        ("numeric", numeric_pipe, numeric_cols),
+    ])
+
+    return preprocessor
