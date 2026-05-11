@@ -18,10 +18,7 @@ def build_pipeline(
     preprocessor = auto_preprocess(X)
 
     if model_name == "linreg":
-        regressor = LinearRegression(
-            max_iter=200,
-            random_state=random_state,
-        )
+        regressor = LinearRegression()
     elif model_name == "xgb":
         if XGBRegressor is None:
             raise ImportError(
